@@ -11,24 +11,44 @@
     var count = 10;
 
     function countDown(){
-        document.getElementById(count).innerText = 'Time to be redirected: ' + count + ' seconds!';
+        document.getElementById('count').innerText='Time to be redirected: ' + count + ' seconds!';
 
         if (count == 0){
-            window.location.href="/page3.html";
+            document.getElementById('yesButton').style.display = 'block';
+            document.getElementById('noButton').style.display = 'block';
         }else {
             count --;
             setTimeout(countDown, 1000);
         }
+    }
 
-        document.addEventListener('DOMContentLoaded', function (){
-            countDown();
-        })
+    document.addEventListener('DOMContentLoaded', function (){
+        countDown();
+    })
+
+    function noButton(){
+        document.getElementById('yesButton').style.display = 'none';
+        document.getElementById('noButton').style.display = 'none';
+
+        count = 10;
+        countDown();
     }
 </script>
 
 <center>
-    <h1>"This is second page!"</h1>
+    <h1>This is second page!</h1>
     <h1 id='count'> 10 </h1>
+
+    <table>
+        <tr>
+            <td colspan="1">
+                <button onclick="window.location.href = '/page3'" id="yesButton" class="btn btn-primary btn-ghost btn-shine" style="display: none">YES</button>
+            </td>
+            <td colspan="2">
+                <button onclick="noButton()" id="noButton" class="btn btn-primary btn-ghost btn-shine" style="display: none">NO</button>
+            </td>
+        </tr>
+    </table>
 </center>
 </body>
 </html>
