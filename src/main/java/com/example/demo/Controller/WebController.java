@@ -6,13 +6,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class WebController {
-    @GetMapping("/index")
-    public String index(Model model){
-        int a = 10, b = 55, c = a * b;
+    @GetMapping("/main")
+        public String showMain(){
 
-        model.addAttribute("result", c);
-        return "index";
-    }
+
+
+            return"main";
+        }
+
+
+//    @GetMapping("/index")
+//    public String index(Model model){
+//        int a = 10, b = 55, c = a * b;
+//
+//        model.addAttribute("result", c);
+//        return "index";
+//    }
 
     @GetMapping("/page1")
     public void access1() {
